@@ -2,3 +2,10 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
+
+body {
+  height: 100vh;
+  background: #b2fefa;
+  background: -webkit-linear-gradient(to bottom, #0ed2f7, #b2fefa);
+  background: linear-gradient(to bottom, #0ed2f7, #b2fefa);
+}
