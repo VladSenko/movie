@@ -3,3 +3,11 @@
 <div class="container">
   <app-search></app-search>
 </div>
+
+<ul *ngIf="movies?.length">
+  <li *ngFor="let movie of movies">
+    {{ movie.Title }}
+  </li>
+</ul>
+
+<p *ngIf="error">{{ error }}</p>

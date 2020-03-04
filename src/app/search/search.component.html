@@ -4,10 +4,16 @@
       <input
         type="text"
         class="form-control search__input"
+        [value]="searchString"
+        [(ngModel)]="searchString"
       />
     </div>
     <div class="col-12 col-sm-3 col-lg-2">
-      <button type="button" class="btn btn-dark search__button">
+      <button
+        type="button"
+        class="btn btn-dark search__button"
+        (click)="searchStringChanged()"
+      >
         Search
       </button>
     </div>
