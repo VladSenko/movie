@@ -3,6 +3,6 @@ import { Movie } from './movie.model';
 export interface MovieResponse {
   Search: Movie[];
   totalResults: string;
-  Response: string;
+  Response: 'True' | 'False';
   Error: string;
 }

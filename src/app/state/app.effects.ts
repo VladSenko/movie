@@ -20,7 +20,7 @@ export class AppEffects {
         .getMovies(action.payload.requestString, action.payload.pages)
         .pipe(
           map((response: MovieResponse) => {
-            if (response.Response === "True") {
+            if (response.Response === 'True') {
               return new appActions.LoadMoviesSuccess(response);
             } else {
               return new appActions.LoadMoviesError(response.Error);
