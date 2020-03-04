@@ -1,11 +1,11 @@
-import { Action } from "@ngrx/store";
+import { Action } from '@ngrx/store';
 import { MovieResponse } from '../models/movie-response.model';
 
 export enum AppActionTypes {
-  SetSearchString = "[App] Set Search String",
-  LoadMovies = "[App] Load Movies",
-  LoadMoviesSuccess = "[App] Load Movies Success",
-  LoadMoviesError = "[App] Load Movies Error"
+  SetSearchString = '[App] Set Search String',
+  LoadMovies = '[App] Load Movies',
+  LoadMoviesSuccess = '[App] Load Movies Success',
+  LoadMoviesError = '[App] Load Movies Error'
 }
 
 export class SetSearchString implements Action {

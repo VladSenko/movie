@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Store, select } from '@ngrx/store';
-import { Subscription } from "rxjs";
-import * as fromApp from "./../state/app.reducer";
+import { Subscription } from 'rxjs';
+import * as fromApp from './../state/app.reducer';
 import { Movie } from '../models/movie.model';
 
 @Component({

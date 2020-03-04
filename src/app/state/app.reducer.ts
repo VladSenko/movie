@@ -9,7 +9,7 @@ export interface AppState {
 }
 
 const initialState: AppState = {
-  searchString: "",
+  searchString: '',
   movies: [],
   moviesCount: 0,
   moviesError: null

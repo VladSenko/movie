@@ -1,13 +1,13 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { Store, select } from "@ngrx/store";
-import { Subscription } from "rxjs";
-import * as fromApp from "./../state/app.reducer";
-import * as appActions from "./../state/app.actions";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Subscription } from 'rxjs';
+import * as fromApp from './../state/app.reducer';
+import * as appActions from './../state/app.actions';
 
 @Component({
-  selector: "app-search",
-  templateUrl: "./search.component.html",
-  styleUrls: ["./search.component.scss"]
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit, OnDestroy {
   public searchString: string;
@@ -17,7 +17,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscriptions.add(
-      this.store.pipe(select("appState")).subscribe(state => {
+      this.store.pipe(select('appState')).subscribe(state => {
         this.searchString = state.searchString;
       })
     );
