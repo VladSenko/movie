@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { MovieResponse } from './models/movie-response.model';
+import { CurrentMovie } from './models/curent-movie.model';
 
 @Injectable({
     providedIn: 'root'
@@ -26,12 +27,10 @@ export class DataService {
         return this.http.get<MovieResponse>(this.api, options);
     }
 
-    public getMovieById(id: string) {
+    public getMovieById(id: string): Observable<CurrentMovie> {
         const options = {
-            params: new HttpParams()
-                .set('apiKey', this.key)
-                .set('i', id)
+            params: new HttpParams().set('apiKey', this.key).set('i', id)
         };
-        return this.http.get(this.api, options);
+        return this.http.get<CurrentMovie>(this.api, options);
     }
 }

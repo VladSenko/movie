@@ -7,6 +7,7 @@ import { of, Observable } from 'rxjs';
 import { Action } from '@ngrx/store';
 import { MovieResponse } from '../models/movie-response.model';
 import { HttpErrorResponse } from '@angular/common/http';
+import { CurrentMovie } from '../models/curent-movie.model';
 
 @Injectable()
 export class AppEffects {
@@ -41,7 +42,13 @@ export class AppEffects {
         switchMap((action: appActions.LoadCurrentMovie) =>
             this.dataService.getMovieById(action.payload).pipe(
                 map((response: any) => {
-                    return new appActions.LoadCurrentMovieSuccess(response);
+                    if (response.Response === 'True') {
+                        return new appActions.LoadCurrentMovieSuccess(response as CurrentMovie);
+                    } else {
+                        return new appActions.LoadCurrentMovieError(
+                            response.Error
+                        );
+                    }
                 }),
                 catchError((error: HttpErrorResponse) =>
                     of(new appActions.LoadCurrentMovieError(error.message))

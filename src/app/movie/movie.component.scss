@@ -1,0 +1,52 @@
+.movie {
+    &__loading {
+        width: 100%;
+        text-align: center;
+    }
+
+    &__poster {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        max-height: 350px;
+
+        @media screen and (min-width: 768px) {
+            max-height: initial;
+        }
+    }
+
+    &__title {
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            text-align: left;
+        }
+    }
+
+    &__subtitle {
+        text-align: center;
+
+        @media screen and (min-width: 768px) {
+            text-align: left;
+        }
+    }
+
+    &__table {
+        @media screen and (min-width: 768px) {
+            td {
+                border: none;
+            }
+        }
+    }
+
+    &__back {
+        display: block;
+        width: 150px;
+        margin: 0 auto 15px;
+        color: #fff;
+    }
+
+    &__error {
+        margin-top: 15px;
+    }
+}

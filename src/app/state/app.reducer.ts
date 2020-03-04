@@ -1,13 +1,17 @@
 import { AppActions, AppActionTypes } from './app.actions';
 import { Movie } from '../models/movie.model';
+import { CurrentMovie } from '../models/curent-movie.model';
 
 export interface AppState {
     searchString: string;
     movies: Movie[];
     moviesCount: number;
-    moviesError: any;
+    moviesError: string;
     moviesListLoading: boolean;
     movieLoading: boolean;
+    currentMovie: CurrentMovie;
+    currentMovieLoading: boolean;
+    curentMovieError: string;
 }
 
 const initialState: AppState = {
@@ -16,7 +20,10 @@ const initialState: AppState = {
     moviesCount: 0,
     moviesError: null,
     moviesListLoading: false,
-    movieLoading: false
+    movieLoading: false,
+    currentMovie: null,
+    currentMovieLoading: false,
+    curentMovieError: null
 };
 
 export function appReducer(state = initialState, action: AppActions): AppState {
@@ -48,6 +55,27 @@ export function appReducer(state = initialState, action: AppActions): AppState {
                 moviesCount: 0,
                 moviesError: action.payload,
                 moviesListLoading: false
+            };
+        case AppActionTypes.LoadCurrentMovie:
+            return {
+                ...state,
+                currentMovie: null,
+                curentMovieError: null,
+                currentMovieLoading: true
+            };
+        case AppActionTypes.LoadCurrentMovieSuccess:
+            return {
+                ...state,
+                currentMovie: action.payload,
+                currentMovieLoading: false,
+                curentMovieError: null
+            };
+        case AppActionTypes.LoadCurrentMovieError:
+            return {
+                ...state,
+                currentMovie: null,
+                currentMovieLoading: false,
+                curentMovieError: action.payload
             };
         default:
             return state;

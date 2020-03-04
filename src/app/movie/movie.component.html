@@ -1,3 +1,59 @@
 <div class="container">
-    
+    <div class="row" *ngIf="loading">
+        <h2 class="h2 movie__loading">Loading...</h2>
+    </div>
+
+    <div class="row" *ngIf="movie">
+        <div class="col-12 col-md-4">
+            <img
+                [src]="movie.Poster"
+                [alt]="movie.Title"
+                class="movie__poster"
+            />
+        </div>
+
+        <div class="col-12 col-md-8">
+            <h1 class="h1 movie__title">{{ movie.Title }}</h1>
+            <h3 class="h3 text-muted movie__subtitle">
+                {{ movie.Year }} - {{ movie.Country }}
+            </h3>
+
+            <table class="table table-borderless movie__table">
+                <tr>
+                    <td>Director:</td>
+                    <td>{{ movie.Director }}</td>
+                </tr>
+                <tr>
+                    <td>Actors:</td>
+                    <td>{{ movie.Actors }}</td>
+                </tr>
+                <tr>
+                    <td>Score:</td>
+                    <td>{{ movie.Metascore }}</td>
+                </tr>
+                <tr>
+                    <td>IMDB rating:</td>
+                    <td>{{ movie.imdbRating }}</td>
+                </tr>
+                <tr>
+                    <td>IMDB rating:</td>
+                    <td>{{ movie.imdbRating }}</td>
+                </tr>
+                <tr>
+                    <td>Description:</td>
+                    <td>{{ movie.Plot }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="alert alert-danger movie__error" role="alert" *ngIf="error">
+        {{ error }}
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <a class="btn btn-dark movie__back" [routerLink]="['/']">Back</a>
+        </div>
+    </div>
 </div>

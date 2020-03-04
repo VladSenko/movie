@@ -4,8 +4,10 @@
             <input
                 type="text"
                 class="form-control search__input"
+                placeholder="Movie name"
                 [value]="searchString"
                 [(ngModel)]="searchString"
+                (keyup.enter)="searchStringChanged()"
             />
         </div>
         <div class="col-12 col-sm-3 col-lg-2">

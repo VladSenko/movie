@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { MovieResponse } from '../models/movie-response.model';
+import { CurrentMovie } from '../models/curent-movie.model';
 
 export enum AppActionTypes {
     SetSearchString = '[App] Set Search String',
@@ -43,12 +44,12 @@ export class LoadCurrentMovie implements Action {
 export class LoadCurrentMovieSuccess implements Action {
     readonly type = AppActionTypes.LoadCurrentMovieSuccess;
 
-    constructor(public payload: any) {}
+    constructor(public payload: CurrentMovie) {}
 }
 export class LoadCurrentMovieError implements Action {
     readonly type = AppActionTypes.LoadCurrentMovieError;
 
-    constructor(public payload: any) {}
+    constructor(public payload: string) {}
 }
 
 export type AppActions =
