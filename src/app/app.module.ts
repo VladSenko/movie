@@ -17,12 +17,14 @@ import { AppEffects } from './state/app.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card';
+import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MoviesListComponent,
-    SearchComponent
+    SearchComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

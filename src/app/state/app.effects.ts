@@ -34,4 +34,19 @@ export class AppEffects {
                 )
         )
     );
+
+    @Effect()
+    loadCurrentMovie$: Observable<Action> = this.actions$.pipe(
+        ofType(appActions.AppActionTypes.LoadCurrentMovie),
+        switchMap((action: appActions.LoadCurrentMovie) =>
+            this.dataService.getMovieById(action.payload).pipe(
+                map((response: any) => {
+                    return new appActions.LoadCurrentMovieSuccess(response);
+                }),
+                catchError((error: HttpErrorResponse) =>
+                    of(new appActions.LoadCurrentMovieError(error.message))
+                )
+            )
+        )
+    );
 }

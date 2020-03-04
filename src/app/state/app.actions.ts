@@ -5,7 +5,10 @@ export enum AppActionTypes {
     SetSearchString = '[App] Set Search String',
     LoadMovies = '[App] Load Movies',
     LoadMoviesSuccess = '[App] Load Movies Success',
-    LoadMoviesError = '[App] Load Movies Error'
+    LoadMoviesError = '[App] Load Movies Error',
+    LoadCurrentMovie = '[App] Load Current Movie',
+    LoadCurrentMovieSuccess = '[App] Load Current Movie Success',
+    LoadCurrentMovieError = '[App] Load Current Movie Error'
 }
 
 export class SetSearchString implements Action {
@@ -31,8 +34,28 @@ export class LoadMoviesError implements Action {
     constructor(public payload: any) {}
 }
 
+export class LoadCurrentMovie implements Action {
+    readonly type = AppActionTypes.LoadCurrentMovie;
+
+    constructor(public payload: string) {}
+}
+
+export class LoadCurrentMovieSuccess implements Action {
+    readonly type = AppActionTypes.LoadCurrentMovieSuccess;
+
+    constructor(public payload: any) {}
+}
+export class LoadCurrentMovieError implements Action {
+    readonly type = AppActionTypes.LoadCurrentMovieError;
+
+    constructor(public payload: any) {}
+}
+
 export type AppActions =
     | SetSearchString
     | LoadMovies
     | LoadMoviesSuccess
-    | LoadMoviesError;
+    | LoadMoviesError
+    | LoadCurrentMovie
+    | LoadCurrentMovieSuccess
+    | LoadCurrentMovieError;

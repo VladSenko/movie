@@ -6,13 +6,17 @@ export interface AppState {
     movies: Movie[];
     moviesCount: number;
     moviesError: any;
+    moviesListLoading: boolean;
+    movieLoading: boolean;
 }
 
 const initialState: AppState = {
     searchString: '',
     movies: [],
     moviesCount: 0,
-    moviesError: null
+    moviesError: null,
+    moviesListLoading: false,
+    movieLoading: false
 };
 
 export function appReducer(state = initialState, action: AppActions): AppState {
@@ -26,21 +30,24 @@ export function appReducer(state = initialState, action: AppActions): AppState {
             return {
                 ...state,
                 movies: [],
-                moviesError: null
+                moviesError: null,
+                moviesListLoading: true
             };
         case AppActionTypes.LoadMoviesSuccess:
             return {
                 ...state,
                 movies: action.payload.Search,
                 moviesCount: +action.payload.totalResults,
-                moviesError: null
+                moviesError: null,
+                moviesListLoading: false
             };
         case AppActionTypes.LoadMoviesError:
             return {
                 ...state,
                 movies: [],
                 moviesCount: 0,
-                moviesError: action.payload
+                moviesError: action.payload,
+                moviesListLoading: false
             };
         default:
             return state;

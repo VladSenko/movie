@@ -25,4 +25,13 @@ export class DataService {
 
         return this.http.get<MovieResponse>(this.api, options);
     }
+
+    public getMovieById(id: string) {
+        const options = {
+            params: new HttpParams()
+                .set('apiKey', this.key)
+                .set('i', id)
+        };
+        return this.http.get(this.api, options);
+    }
 }

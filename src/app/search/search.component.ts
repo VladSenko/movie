@@ -11,6 +11,7 @@ import * as appActions from './../state/app.actions';
 })
 export class SearchComponent implements OnInit, OnDestroy {
     public searchString: string;
+    public loading = false;
 
     private subscriptions: Subscription = new Subscription();
     constructor(private store: Store<{ appState: fromApp.AppState }>) {}
@@ -19,6 +20,7 @@ export class SearchComponent implements OnInit, OnDestroy {
         this.subscriptions.add(
             this.store.pipe(select('appState')).subscribe(state => {
                 this.searchString = state.searchString;
+                this.loading = state.moviesListLoading;
             })
         );
     }
