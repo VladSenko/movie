@@ -1,11 +1,11 @@
-import { Injectable } from "@angular/core";
-import { Actions, Effect, ofType } from "@ngrx/effects";
-import { DataService } from "../data-service.service";
-import * as appActions from "./app.actions";
-import { map, switchMap, catchError } from "rxjs/operators";
-import { of, Observable } from "rxjs";
-import { Action } from "@ngrx/store";
-import { MovieResponse } from "../models/movie-response.model";
+import { Injectable } from '@angular/core';
+import { Actions, Effect, ofType } from '@ngrx/effects';
+import { DataService } from '../data-service.service';
+import * as appActions from './app.actions';
+import { map, switchMap, catchError } from 'rxjs/operators';
+import { of, Observable } from 'rxjs';
+import { Action } from '@ngrx/store';
+import { MovieResponse } from '../models/movie-response.model';
 
 @Injectable()
 export class AppEffects {
@@ -19,7 +19,7 @@ export class AppEffects {
         .getMovies(action.payload.requestString, action.payload.pages)
         .pipe(
           map((response: MovieResponse) => {
-            if (response.Response === "True") {
+            if (response.Response === 'True') {
               return new appActions.LoadMoviesSuccess(response);
             } else {
               return new appActions.LoadMoviesError(response.Error);
