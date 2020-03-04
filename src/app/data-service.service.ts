@@ -4,25 +4,25 @@ import { Observable } from 'rxjs';
 import { MovieResponse } from './models/movie-response.model';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class DataService {
-  private api = 'http://www.omdbapi.com';
-  private key = '2b04e489';
+    private api = 'http://www.omdbapi.com';
+    private key = '2b04e489';
 
-  constructor(private http: HttpClient) {}
+    constructor(private http: HttpClient) {}
 
-  public getMovies(
-    requestString: string,
-    page: string
-  ): Observable<MovieResponse> {
-    const options = {
-      params: new HttpParams()
-        .set('apiKey', this.key)
-        .set('s', requestString)
-        .set('page', page)
-    };
+    public getMovies(
+        requestString: string,
+        page: string
+    ): Observable<MovieResponse> {
+        const options = {
+            params: new HttpParams()
+                .set('apiKey', this.key)
+                .set('s', requestString)
+                .set('page', page)
+        };
 
-    return this.http.get<MovieResponse>(this.api, options);
-  }
+        return this.http.get<MovieResponse>(this.api, options);
+    }
 }

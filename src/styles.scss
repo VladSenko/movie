@@ -8,4 +8,8 @@ body {
   background: #b2fefa;
   background: -webkit-linear-gradient(to bottom, #0ed2f7, #b2fefa);
   background: linear-gradient(to bottom, #0ed2f7, #b2fefa);
+  background-attachment: fixed;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

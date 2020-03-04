@@ -1,7 +1,42 @@
 .movies-list {
     &__header {
+        font-size: 1.75rem;
         font-weight: bold;
         text-align: center;
         text-transform: uppercase;
+
+        @media screen and (min-width: 576px) {
+            font-size: 2.5rem;
+        }
+    }
+
+    &__card {
+        margin-bottom: 15px;
+        background: #23272b;
+        color: #fff;
+    }
+
+    &__card-title {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &__card-link {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    &__card-image {
+        height: 200px;
+        object-fit: cover;
+
+        @media screen and (min-width: 768px) {
+            height: 250px;
+        }
+    }
+
+    &__pagination {
+        background: #fff;
     }
 }

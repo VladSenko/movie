@@ -1,13 +1,42 @@
 <h1 class="h1 movies-list__header">Welcome to movie library!</h1>
 
 <div class="container">
-  <app-search></app-search>
+    <app-search></app-search>
+
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3" *ngFor="let movie of movies">
+            <div class="card movies-list__card">
+                <img
+                    class="card-img-top movies-list__card-image"
+                    loading="lazy"
+                    [src]="movie.Poster"
+                    [alt]="movie.Title"
+                />
+                <div class="card-body">
+                    <h5 class="card-title movies-list__card-title">
+                        <a
+                            class="movies-list__card-link"
+                            [routerLink]="['./']"
+                            >{{ movie.Title }}</a
+                        >
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        {{ movie.Year }}
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="movies-list__pagination" *ngIf="moviesCount > movies.length">
+        <mat-paginator
+            [length]="moviesCount"
+            [pageSize]="movies.length"
+            [hidePageSize]="true"
+        ></mat-paginator>
+    </div>
+
+    <div class="alert alert-danger" role="alert" *ngIf="error">
+        {{ error }}
+    </div>
 </div>
-
-<ul *ngIf="movies?.length">
-  <li *ngFor="let movie of movies">
-    {{ movie.Title }}
-  </li>
-</ul>
-
-<p *ngIf="error">{{ error }}</p>
