@@ -4,6 +4,7 @@ import { CurrentMovie } from '../models/curent-movie.model';
 
 export interface AppState {
     searchString: string;
+    currentMoviesPage: number;
     movies: Movie[];
     moviesCount: number;
     moviesError: string;
@@ -16,6 +17,7 @@ export interface AppState {
 
 const initialState: AppState = {
     searchString: '',
+    currentMoviesPage: 1,
     movies: [],
     moviesCount: 0,
     moviesError: null,
@@ -32,6 +34,11 @@ export function appReducer(state = initialState, action: AppActions): AppState {
             return {
                 ...state,
                 searchString: action.payload
+            };
+        case AppActionTypes.ChangeMoviesPage:
+            return {
+                ...state,
+                currentMoviesPage: action.payload
             };
         case AppActionTypes.LoadMovies:
             return {

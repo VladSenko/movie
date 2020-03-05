@@ -15,21 +15,21 @@ export class DataService {
 
     public getMovies(
         requestString: string,
-        page: string
+        page: number
     ): Observable<MovieResponse> {
         const options = {
             params: new HttpParams()
                 .set('apiKey', this.key)
                 .set('s', requestString)
-                .set('page', page)
+                .set('page', page.toString())
         };
 
         return this.http.get<MovieResponse>(this.api, options);
     }
 
-    public getMovieById(id: string): Observable<CurrentMovie> {
+    public getMovieById(id: number): Observable<CurrentMovie> {
         const options = {
-            params: new HttpParams().set('apiKey', this.key).set('i', id)
+            params: new HttpParams().set('apiKey', this.key).set('i', id.toString())
         };
         return this.http.get<CurrentMovie>(this.api, options);
     }

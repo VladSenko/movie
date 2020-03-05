@@ -16,7 +16,7 @@
                     <h5 class="card-title movies-list__card-title">
                         <a
                             class="movies-list__card-link"
-                            [routerLink]="['/movie', movie.imdbID ]"
+                            [routerLink]="['/movie', movie.imdbID]"
                             >{{ movie.Title }}</a
                         >
                     </h5>
@@ -30,9 +30,11 @@
 
     <div class="movies-list__pagination" *ngIf="moviesCount > movies.length">
         <mat-paginator
+            [pageIndex]="pageIndex"
             [length]="moviesCount"
             [pageSize]="movies.length"
             [hidePageSize]="true"
+            (page)="pageChanged($event)"
         ></mat-paginator>
     </div>
 

@@ -15,33 +15,33 @@ import { environment } from 'src/environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './state/app.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatPaginatorModule} from '@angular/material/paginator';
-import {MatCardModule} from '@angular/material/card';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatCardModule } from '@angular/material/card';
 import { MovieComponent } from './movie/movie.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MoviesListComponent,
-    SearchComponent,
-    MovieComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRoutingModule,
-    FormsModule,
-    StoreModule.forRoot({appState: appReducer}),
-    EffectsModule.forRoot([AppEffects]),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25,
-      logOnly: environment.production
-    }),
-    BrowserAnimationsModule,
-    MatPaginatorModule,
-    MatCardModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        MoviesListComponent,
+        SearchComponent,
+        MovieComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AppRoutingModule,
+        FormsModule,
+        StoreModule.forRoot({ appState: appReducer }),
+        EffectsModule.forRoot([AppEffects]),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25,
+            logOnly: environment.production
+        }),
+        BrowserAnimationsModule,
+        MatPaginatorModule,
+        MatCardModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

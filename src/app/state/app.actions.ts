@@ -4,6 +4,7 @@ import { CurrentMovie } from '../models/curent-movie.model';
 
 export enum AppActionTypes {
     SetSearchString = '[App] Set Search String',
+    ChangeMoviesPage = '[App] Change Movie Page',
     LoadMovies = '[App] Load Movies',
     LoadMoviesSuccess = '[App] Load Movies Success',
     LoadMoviesError = '[App] Load Movies Error',
@@ -21,7 +22,7 @@ export class SetSearchString implements Action {
 export class LoadMovies implements Action {
     readonly type = AppActionTypes.LoadMovies;
 
-    constructor(public payload: { requestString: string; pages: string }) {}
+    constructor(public payload: { requestString: string; pages: number }) {}
 }
 
 export class LoadMoviesSuccess implements Action {
@@ -38,7 +39,7 @@ export class LoadMoviesError implements Action {
 export class LoadCurrentMovie implements Action {
     readonly type = AppActionTypes.LoadCurrentMovie;
 
-    constructor(public payload: string) {}
+    constructor(public payload: number) {}
 }
 
 export class LoadCurrentMovieSuccess implements Action {
@@ -52,6 +53,12 @@ export class LoadCurrentMovieError implements Action {
     constructor(public payload: string) {}
 }
 
+export class ChangeMoviesPage implements Action {
+    readonly type = AppActionTypes.ChangeMoviesPage;
+
+    constructor(public payload: number) {}
+}
+
 export type AppActions =
     | SetSearchString
     | LoadMovies
@@ -59,4 +66,5 @@ export type AppActions =
     | LoadMoviesError
     | LoadCurrentMovie
     | LoadCurrentMovieSuccess
-    | LoadCurrentMovieError;
+    | LoadCurrentMovieError
+    | ChangeMoviesPage;
